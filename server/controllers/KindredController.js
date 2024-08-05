@@ -2,6 +2,21 @@ const Kindred = require('../models/KindredModel');
 
 const kindredController = {};
 
+//get all kindred
+kindredController.getAllKindred = (req, res, next) => {
+  Kindred.find({})
+    .then((kindredArray) => {
+      res.status(200).json(kindredArray);
+    })
+    .catch((err) => {
+      next({
+        log: 'Error fetching all kindred',
+        status: 500,
+        message: { err: 'Internal Server Error' },
+      });
+    });
+};
+
 //creates kindred
 kindredController.createKindred = (req, res, next) => {
   const { name } = req.body;

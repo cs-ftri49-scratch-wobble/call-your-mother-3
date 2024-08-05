@@ -11,6 +11,9 @@ const kindredController = require('../controllers/KindredController'); // Adjust
 //create kindred
 router.put('/create', kindredController.createKindred2);
 
+//get all kindred
+router.get('/all', kindredController.getAllKindred);
+
 //get kindred
 router.get('/:name', kindredController.findKindred);
 

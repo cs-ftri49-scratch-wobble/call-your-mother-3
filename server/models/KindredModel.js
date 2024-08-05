@@ -5,11 +5,11 @@ const mongoose = require('mongoose');
 //https://stackoverflow.com/questions/39596625/nested-objects-in-mongoose-schemas
 //https://stackoverflow.com/questions/15208711/mongoose-subdocuments-vs-nested-schema
 
-const eventSchema = new mongoose.Schema({
-  eventName: { type: String, required: true }, //not having eventName or eventDate will prevent event from being created, but doesn't prevent kindred from being created if there are no events
-  eventDate: { type: Date, required: true }, //setting to unique would prevent different kindred from having the same eventDate bc while required works at document level, unique looks at entire collection  https://www.mongodb.com/community/forums/t/how-to-enforce-uniqueness-for-the-sequence-field-in-a-nested-mongodb-schema-using-mongoose/261450/2
-  eventDescription: { type: String },
-});
+// const eventSchema = new mongoose.Schema({
+//   eventName: { type: String, required: true }, //not having eventName or eventDate will prevent event from being created, but doesn't prevent kindred from being created if there are no events
+//   eventDate: { type: Date, required: true }, //setting to unique would prevent different kindred from having the same eventDate bc while required works at document level, unique looks at entire collection  https://www.mongodb.com/community/forums/t/how-to-enforce-uniqueness-for-the-sequence-field-in-a-nested-mongodb-schema-using-mongoose/261450/2
+//   eventDescription: { type: String },
+// });
 const kindredSchema = new mongoose.Schema({
   name: { type: String, required: true },
   // date: { type: Date }, //most recent interaction date
