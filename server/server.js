@@ -2,12 +2,12 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
 // require('dotenv').config({ path: './mongodb.env' });
-// const authRoutes = require('./routes/authRoutes');
-// const sessionRoutes = require('./routes/sessionRoutes');
+const authRoutes = require('./routes/authRoutes');
+const sessionRoutes = require('./routes/sessionRoutes');
 
 const app = express();
 //runs on a the port provided by hosting service. If not provided, runs on 8080
@@ -26,14 +26,14 @@ app.get('/', (req, res) => {
 
 // //MongoDB connection
 // const mongoURI = process.env.MONGO_URI;
-// const TEMP_URL = "mongodb+srv://dylankinsella7:zvDozndWFa1QKaZ4@cluster0.synwgk7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-// mongoose.connect(TEMP_URL)
-// .then(() => console.log('MongoDB connected'))
-// .catch(err => console.log(err));
+const TEMP_URL = "mongodb+srv://dylankinsella7:zvDozndWFa1QKaZ4@cluster0.synwgk7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+mongoose.connect(TEMP_URL)
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.log(err));
 
 // // Routes
-// app.use('/auth', authRoutes); // Auth routes
-// app.use('/session', sessionRoutes); // Session routes
+app.use('/auth', authRoutes); // Auth routes
+app.use('/session', sessionRoutes); // Session routes
 
 // Unknown route handler
 app.use((req, res) => res.sendStatus(404));
