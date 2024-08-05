@@ -21,24 +21,37 @@ function Login({ loginOpen, setLoginOpen, setActiveUser }) {
 
   function handleLogin() {
     if (!username || !password) {
-      console.log('invalid login')
+      console.log('invalid login');
       return;
     }
-      //post request
-      const data = {
-        username,
-        password
-      }
-        //check database for matching auth
-      //if !matching data
-         //console.log('invalid login)
-         //return 
+    //post request
+    fetch('http://localhost:8080/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, password }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+      })
+      .then((data) => {
+        if (!data) {
+          console.log("invalid login")
+          setActiveUser('')
+          return;
+        }
 
-      setActiveUser(username)
-      setLoginOpen(false);
-      setUsername('');
-      setPassword('');
-    
+        setActiveUser(username);
+        setLoginOpen(false);
+        setUsername('');
+        setPassword('');
+
+        console.log('Login worked', data);
+      });
+
   }
 
   return (
@@ -66,7 +79,9 @@ function Login({ loginOpen, setLoginOpen, setActiveUser }) {
         }}
         required
       />
-      <button className="btn-primary" onClick={() => handleLogin()}>Login</button>
+      <button className="btn-primary" onClick={() => handleLogin()}>
+        Login
+      </button>
     </div>
   );
 }

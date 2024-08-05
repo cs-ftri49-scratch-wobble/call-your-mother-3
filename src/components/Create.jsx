@@ -17,22 +17,31 @@ function Create({createOpen, setCreateOpen, setActiveUser}) {
       console.log('invalid Create')
       return;
     }
-      //post request
-      const data = {
-        username,
-        password
-      }
-        //check database for existing username
-      //if matching data
-         //console.log('invalid Create)
-         //return 
-       //Add user 
-      
-      setActiveUser(username)
-      setCreateOpen(false);
-      setUsername('');
-      setPassword('');
     
+    fetch('http://localhost:8080/auth/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username, password })
+    })
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+      })
+      .then(data => {
+        if (data) {
+          console.log('Account created', data);
+          handleClose();
+        } else {
+          console.log(data.message);
+        }
+      })
+      .catch(err => {
+        console.log('Error during signup:', err);
+      })
+          
   }
 
     return (

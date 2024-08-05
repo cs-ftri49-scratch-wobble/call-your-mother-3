@@ -1,5 +1,5 @@
 import '../css/user.css';
-import Frame from './Frame';
+// import Frame from './Frame';
 import Outside from './Outside';
 import { useEffect, useState } from 'react';
 import Sunflower from './Sunflower';
@@ -44,7 +44,7 @@ const health = 5;
         <button className="btn-user" onClick={()=>setEditFriendV(true)}>Edit friends</button>
         </div>
       </div>
-      <Frame />
+      {/* <Frame /> */}
     </div>
   );
 }

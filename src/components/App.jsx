@@ -13,13 +13,26 @@ function App() {
   const [createOpen, setCreateOpen] = useState(false)
   const [activeUser, setActiveUser] = useState('');
   
-  return (
+  if (activeUser) {
+    return (
+      <div className="app">
+        <Login loginOpen = {loginOpen} setLoginOpen = {setLoginOpen} setActiveUser={setActiveUser}/>
+        <Create createOpen = {createOpen} setCreateOpen = {setCreateOpen} setActiveUser={setActiveUser}/>   
+        <Nav activeUser = {activeUser} setActiveUser = {setActiveUser}/>
+        <User />
+        <Footer />
+       
+      </div>
+    );
+  }
+
+  if (!activeUser) return (
     <div className="app">
       <Login loginOpen = {loginOpen} setLoginOpen = {setLoginOpen} setActiveUser={setActiveUser}/>
       <Create createOpen = {createOpen} setCreateOpen = {setCreateOpen} setActiveUser={setActiveUser}/>   
-      <Nav />
+      <Nav activeUser = {activeUser} setActiveUser = {setActiveUser}/>
       <Hero loginOpen = {loginOpen} setLoginOpen = {setLoginOpen} createOpen = {createOpen} setCreateOpen = {setCreateOpen}/>
-      <User />
+      {/* <User /> */}
       <Footer />
      
     </div>

@@ -4,7 +4,7 @@ const Session = require('../models/Session');
 const authController = {};
 
 authController.signup = (req, res, next) => {
-  const { name, username, password } = req.body;
+  const { username, password } = req.body;
 
   console.log('Received signup request:', req.body);
 
@@ -14,7 +14,7 @@ authController.signup = (req, res, next) => {
         console.log('User already exists:', username);
         return res.status(400).json({ message: 'User already exists' });
       } else {
-        const newUser = new User({ name, username, password });
+        const newUser = new User({ username, password });
         return newUser.save();
       }
     })
