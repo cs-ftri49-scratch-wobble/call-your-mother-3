@@ -1,0 +1,20 @@
+🎯 Login
+    🎯 POST request to /api/user/??? should check database for username password match
+    🎯 If unsuccessful, indicate in the front end
+    🎯 If successful, set username to activeUser in the front end
+        🎯 Having an activeUser should automaticall render the unique user page
+
+🎯 Create account
+    🎯 POST request to /api/user/create should:
+        🎯 Check 
+        ...add restrictions on naming convention
+
+🎯 Add Event
+
+🎯 Add Friend
+
+🎯 Delete Friend
+
+🎯 Get All rows from user's table
+> Friend List
+> Health
