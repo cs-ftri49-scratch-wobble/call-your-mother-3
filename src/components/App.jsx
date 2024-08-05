@@ -11,15 +11,28 @@ import Create from './Create';
 function App() {
   const [loginOpen, setLoginOpen] = useState(false)
   const [createOpen, setCreateOpen] = useState(false)
-  // const [activeUser, setActiveUser] = useState('');
+  const [activeUser, setActiveUser] = useState('');
   
-  return (
+  if (activeUser) {
+    return (
+      <div className="app">
+        <Login loginOpen = {loginOpen} setLoginOpen = {setLoginOpen} setActiveUser={setActiveUser}/>
+        <Create createOpen = {createOpen} setCreateOpen = {setCreateOpen} setActiveUser={setActiveUser}/>   
+        <Nav activeUser = {activeUser} setActiveUser = {setActiveUser}/>
+        <User />
+        <Footer />
+       
+      </div>
+    );
+  }
+
+  if (!activeUser) return (
     <div className="app">
-      <Login loginOpen = {loginOpen} setLoginOpen = {setLoginOpen}/>
-      <Create createOpen = {createOpen} setCreateOpen = {setCreateOpen}/>   
-      <Nav />
-      {/* <Hero loginOpen = {loginOpen} setLoginOpen = {setLoginOpen} createOpen = {createOpen} setCreateOpen = {setCreateOpen}/> */}
-      <User />
+      <Login loginOpen = {loginOpen} setLoginOpen = {setLoginOpen} setActiveUser={setActiveUser}/>
+      <Create createOpen = {createOpen} setCreateOpen = {setCreateOpen} setActiveUser={setActiveUser}/>   
+      <Nav activeUser = {activeUser} setActiveUser = {setActiveUser}/>
+      <Hero loginOpen = {loginOpen} setLoginOpen = {setLoginOpen} createOpen = {createOpen} setCreateOpen = {setCreateOpen}/>
+      {/* <User /> */}
       <Footer />
      
     </div>
