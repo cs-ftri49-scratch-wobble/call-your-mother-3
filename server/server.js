@@ -2,7 +2,7 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
 // require('dotenv').config({ path: './mongodb.env' });
@@ -26,10 +26,10 @@ app.get('/', (req, res) => {
 
 // //MongoDB connection
 // const mongoURI = process.env.MONGO_URI;
-// const TEMP_URL = "mongodb+srv://dylankinsella7:zvDozndWFa1QKaZ4@cluster0.synwgk7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-// mongoose.connect(TEMP_URL)
-// .then(() => console.log('MongoDB connected'))
-// .catch(err => console.log(err));
+const TEMP_URL = "mongodb+srv://dylankinsella7:zvDozndWFa1QKaZ4@cluster0.synwgk7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+mongoose.connect(TEMP_URL)
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.log(err));
 
 // // Routes
 // app.use('/auth', authRoutes); // Auth routes
