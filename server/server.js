@@ -8,7 +8,7 @@ require('dotenv').config();
 // require('dotenv').config({ path: './mongodb.env' });
 const authRoutes = require('./routes/authRoutes');
 const sessionRoutes = require('./routes/sessionRoutes');
-const kindredRoutes = require('../routes/kindredRoutes');
+const kindredRoutes = require('./routes/kindredRoutes');
 
 const app = express();
 //runs on a the port provided by hosting service. If not provided, runs on 8080
