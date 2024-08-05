@@ -6,8 +6,8 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
 // require('dotenv').config({ path: './mongodb.env' });
-// const authRoutes = require('./routes/authRoutes');
-// const sessionRoutes = require('./routes/sessionRoutes');
+const authRoutes = require('./routes/authRoutes');
+const sessionRoutes = require('./routes/sessionRoutes');
 
 const app = express();
 //runs on a the port provided by hosting service. If not provided, runs on 8080
@@ -32,8 +32,8 @@ mongoose.connect(TEMP_URL)
 .catch(err => console.log(err));
 
 // // Routes
-// app.use('/auth', authRoutes); // Auth routes
-// app.use('/session', sessionRoutes); // Session routes
+app.use('/auth', authRoutes); // Auth routes
+app.use('/session', sessionRoutes); // Session routes
 
 // Unknown route handler
 app.use((req, res) => res.sendStatus(404));
