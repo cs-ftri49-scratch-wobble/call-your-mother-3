@@ -4,9 +4,13 @@ import Outside from './Outside';
 import { useEffect, useState } from 'react';
 import Sunflower from './Sunflower';
 import AddEvent from './AddEvent';
+import AddFriend from './AddFriend';
+import EditFriend from './EditFriend';
 
 function User() {
 const [addEventV, setAddEventV]= useState(false)
+const [addFriendV, setAddFriendV]= useState(false)
+const [editFriendV, setEditFriendV]= useState(false)
 
   URL = 'http://localhost:8080/';
   useEffect(() => {
@@ -23,6 +27,10 @@ const health = 5;
   return (
     <div className="user">
       <AddEvent addEventV={addEventV} setAddEventV={setAddEventV}/>
+      <AddFriend addFriendV = {addFriendV} setAddFriendV = {setAddFriendV} />
+      <EditFriend editFriendV = {editFriendV} setEditFriendV = {setEditFriendV} />
+      
+
       <div className="windowsill">
         <Outside />
         <div className="friend-list">
@@ -31,8 +39,9 @@ const health = 5;
           <Sunflower friend="erin" health={health}/>
         </div>
         <div className="friend-menu">
-          <button className="btn-user">Edit friends</button>
-          <button className="btn-user" onClick={()=>setAddEventV(true)}>Add event</button>
+        <button className="btn-user" onClick={()=>setAddEventV(true)}>Add event</button>
+        <button className="btn-user" onClick={()=>setAddFriendV(true)}>Add friend</button>
+        <button className="btn-user" onClick={()=>setEditFriendV(true)}>Edit friends</button>
         </div>
       </div>
       <Frame />

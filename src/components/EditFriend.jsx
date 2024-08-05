@@ -1,59 +1,51 @@
 import { useState } from 'react';
 import '../css/userCards.css';
 
-function AddEvent({ addEventV, setAddEventV }) {
+function EditFriend({ editFriendV, setEditFriendV }) {
   const [friend, setFriend] = useState();
-  const [date, setDate] = useState();
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (friend && date) {
-      console.log('success');
-      //make post request
 
-      document.getElementById('add-event-form').reset();
-      setAddEventV(false);
-      setDate();
+  function deleteFriend(e) {
+    e.preventDefault();
+    if (friend) {
+    //   console.log('success');
+      //make post request
+      document.getElementById('delete-friend-form').reset();
+      setEditFriendV(false);
       setFriend();
     }
   }
   function handleClose() {
-    document.getElementById('add-event-form').reset();
-    setAddEventV(false);
-    setDate();
+    document.getElementById('delete-friend-form').reset();
+    setEditFriendV(false);
     setFriend();
   }
 
   return (
-    <div className={addEventV ? 'card' : 'card invisible'}>
+    <div className={editFriendV ? 'card' : 'card invisible'}>
       <span className="close-button" onClick={() => handleClose()}>
         &times;
       </span>
-      <h2>Add Event</h2>
+      <h2>Remove Friend</h2>
       {/* <h2>LOGO</h2> */}
       <div></div>
-      <form id="add-event-form">
+      <form id='delete-friend-form'>
         <select name="friend" onChange={(e) => setFriend(e.target.value)}>
           <option value="invalid">choose</option>
           <option value="david">david</option>
           <option value="alex">alex</option>
           <option value="erin">erin</option>
         </select>
-        <input
-          type="date"
-          onChange={(e) => setDate(e.target.value)}
-          placeholder="date"
-        />
         <button
           onClick={(e) => {
-            handleSubmit(e);
+            deleteFriend(e);
           }}
           className="btn-primary"
         >
-          Add
+          Remove
         </button>
       </form>
     </div>
   );
 }
 
-export default AddEvent;
+export default EditFriend;
