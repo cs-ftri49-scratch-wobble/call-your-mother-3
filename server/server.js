@@ -6,8 +6,8 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
 // require('dotenv').config({ path: './mongodb.env' });
-// const authRoutes = require('./routes/authRoutes');
-// const sessionRoutes = require('./routes/sessionRoutes');
+const authRoutes = require('./routes/authRoutes');
+const sessionRoutes = require('./routes/sessionRoutes');
 const kindredRoutes = require('../routes/kindredRoutes');
 
 const app = express();
@@ -35,8 +35,8 @@ mongoose
   .catch((err) => console.log(err));
 
 // // Routes
-// app.use('/auth', authRoutes); // Auth routes
-// app.use('/session', sessionRoutes); // Session routes
+app.use('/auth', authRoutes); // Auth routes
+app.use('/session', sessionRoutes); // Session routes
 app.use('/kindred', kindredRoutes);
 
 // Unknown route handler
