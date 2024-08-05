@@ -11,18 +11,23 @@ function User() {
 const [addEventV, setAddEventV]= useState(false)
 const [addFriendV, setAddFriendV]= useState(false)
 const [editFriendV, setEditFriendV]= useState(false)
+const [friendList, setFriendList] = useState([]);
 
-  URL = 'http://localhost:8080/';
+const dummyData = [
+  "kenny", "stephen", "joyce"
+]
+
+  URL = 'http://localhost:8080/kindred/all';
   useEffect(() => {
     fetch(URL)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        setFriendList(data)
       });
   }, []);
 
-const friend = "David";
-const health = 5;
+  // http://localhost:8080/kindred/all
 
   return (
     <div className="user">
@@ -34,9 +39,10 @@ const health = 5;
       <div className="windowsill">
         <Outside />
         <div className="friend-list">
-          <Sunflower friend={friend} health={health}/>
+          {friendList.map((friend) => <Sunflower friend={friend.name} health="5" key={friend.id}/>)}
+          {/* <Sunflower friend={friend} health={health}/>
           <Sunflower friend="alex" health={health}/>
-          <Sunflower friend="erin" health={health}/>
+          <Sunflower friend="erin" health={health}/> */}
         </div>
         <div className="friend-menu">
         <button className="btn-user" onClick={()=>setAddEventV(true)}>Add event</button>
