@@ -12,8 +12,8 @@ const mongoose = require('mongoose');
 // });
 const kindredSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  // date: { type: Date }, //most recent interaction date
-  // health: { type: Number },
+  date: { type: Date }, //most recent interaction date
+  health: { type: Number },
   // events: [eventSchema], //will hold multiple eventSchema objects
   // label: [{ type: String }], //setting isn't a way to make relationshipLabel required, only that all relationLabel within the array must be non empty strings
   // role: [{ type: String }],

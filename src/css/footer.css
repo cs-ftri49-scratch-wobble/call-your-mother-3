@@ -4,4 +4,13 @@
     background: var(--white);
     display: grid;
     place-content: center;
+    padding: 5px;
+}
+
+.footer p, .footer div {
+    font-size: 0.8em;
+}
+
+.footer a {
+    font-size: 0.8em;
 }

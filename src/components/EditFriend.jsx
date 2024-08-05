@@ -1,17 +1,29 @@
 import { useState } from 'react';
 import '../css/userCards.css';
 
-function EditFriend({ editFriendV, setEditFriendV }) {
+function EditFriend({ editFriendV, setEditFriendV, friendList }) {
   const [friend, setFriend] = useState();
 
   function deleteFriend(e) {
     e.preventDefault();
     if (friend) {
-    //   console.log('success');
-      //make post request
-      document.getElementById('delete-friend-form').reset();
-      setEditFriendV(false);
-      setFriend();
+      const newUrl = `http://localhost:8080/kindred/${friend}`
+      fetch(newUrl, {
+        method: 'DELETE',
+        headers: {'Content-Type': 'application/json'},
+        // body: JSON.stringify({ name: friend }),
+      })
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            console.log('Bad network response');
+          }
+        })
+        .then(data => {
+          console.log('Friend deleted:', data);
+          handleClose();
+        })
     }
   }
   function handleClose() {
@@ -30,10 +42,8 @@ function EditFriend({ editFriendV, setEditFriendV }) {
       <div></div>
       <form id='delete-friend-form'>
         <select name="friend" onChange={(e) => setFriend(e.target.value)}>
-          <option value="invalid">choose</option>
-          <option value="david">david</option>
-          <option value="alex">alex</option>
-          <option value="erin">erin</option>
+        <option value="invalid">choose</option>
+          {friendList.map(friend => <option value={friend.name} key={friend.name}>{friend.name}</option>)}
         </select>
         <button
           onClick={(e) => {

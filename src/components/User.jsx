@@ -12,10 +12,15 @@ const [addEventV, setAddEventV]= useState(false)
 const [addFriendV, setAddFriendV]= useState(false)
 const [editFriendV, setEditFriendV]= useState(false)
 const [friendList, setFriendList] = useState([]);
+const [today, setToday] = useState('date');
+const [oldDate, setOldDate] = useState('oldDate');
 
-const dummyData = [
-  "kenny", "stephen", "joyce"
-]
+useEffect(() => {
+const currDate = new Date();
+const lastDate = new Date("04/02/2024")
+setToday(currDate)
+setOldDate(lastDate)
+}, [])
 
   URL = 'http://localhost:8080/kindred/all';
   useEffect(() => {
@@ -24,25 +29,24 @@ const dummyData = [
       .then((data) => {
         console.log(data);
         setFriendList(data)
-      });
-  }, []);
+        //Acquire date of last engagement from database
 
-  // http://localhost:8080/kindred/all
+
+      });
+  }, [addFriendV, editFriendV]);
+
 
   return (
     <div className="user">
       <AddEvent addEventV={addEventV} setAddEventV={setAddEventV}/>
       <AddFriend addFriendV = {addFriendV} setAddFriendV = {setAddFriendV} />
-      <EditFriend editFriendV = {editFriendV} setEditFriendV = {setEditFriendV} />
+      <EditFriend editFriendV = {editFriendV} setEditFriendV = {setEditFriendV} friendList={friendList}/>
       
 
       <div className="windowsill">
         <Outside />
         <div className="friend-list">
-          {friendList.map((friend) => <Sunflower friend={friend.name} health="5" key={friend.id}/>)}
-          {/* <Sunflower friend={friend} health={health}/>
-          <Sunflower friend="alex" health={health}/>
-          <Sunflower friend="erin" health={health}/> */}
+          {friendList.map((friend) => <Sunflower friend={friend.name} health="4" key={friend._id}/>)}
         </div>
         <div className="friend-menu">
         <button className="btn-user" onClick={()=>setAddEventV(true)}>Add event</button>

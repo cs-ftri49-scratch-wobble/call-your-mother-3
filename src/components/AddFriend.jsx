@@ -7,11 +7,23 @@ function AddFriend({ addFriendV, setAddFriendV }) {
   function handleSubmit(e) {
     e.preventDefault();
     if (friend) {
-      console.log('success');
-      //make post request
-      document.getElementById('add-friend-form').reset();
-      setAddFriendV(false);
-      setFriend();
+      fetch('http://localhost:8080/kindred/create', {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ name: friend }),
+      })
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            console.log('Bad network response');
+          }
+        })
+        .then(data => {
+          console.log('Friend added:', data);
+          handleClose();
+        })
+
     }
   }
   function handleClose() {
@@ -19,7 +31,7 @@ function AddFriend({ addFriendV, setAddFriendV }) {
     setAddFriendV(false);
     setFriend();
   }
-
+  
   return (
     <div className={addFriendV ? 'card' : 'card invisible'}>
       <span className="close-button" onClick={() => handleClose()}>
