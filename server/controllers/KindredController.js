@@ -152,8 +152,8 @@ kindredController.addDate = async (req, res, next) => {
     });
   }
   try {
-    const objDate = new Date(date);
-    res.locals.kindred.date = objDate;
+    // const objDate = new Date(date);
+    res.locals.kindred.date = date;
     await res.locals.kindred.save(); //https://mongoosejs.com/docs/documents.html
     return next();
   } catch (err) {
@@ -188,6 +188,9 @@ kindredController.getHealth = async (req, res, next) => {
   }
 };
 
+// kindredController.saveDate = async (req,res,next)=>{
+//   const {date} = r
+// }
 module.exports = kindredController;
 
 //Stretch

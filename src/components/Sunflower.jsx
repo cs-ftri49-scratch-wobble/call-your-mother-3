@@ -1,11 +1,22 @@
 import '../css/sunflower.css'
+import {useEffect, useState} from 'react';
 
-function Sunflower({friend, health}){
+function Sunflower({friend, today}){
+    const [daysPassed, setDaysPassed] = useState('NA');
+useEffect(() => {
+    const lastDate= new Date(friend.date);
+
+    const diff_in_time = lastDate.getTime() - today.getTime();
+
+    setDaysPassed( Math.abs(Math.round(diff_in_time / (1000 * 3600 * 24))));
+}, [friend, today])  
+
+
     return (
         <div className='frame'>
             <div className="pot-body">
-                <span>{friend}</span>
-                <span>{health}</span>
+                <span>{friend.name}</span>
+                <span>{daysPassed + " days"}</span>
             </div>
             <div className="pot-lip"></div>
             <div className="sunflower-stem">

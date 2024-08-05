@@ -32,6 +32,8 @@ router.post(
   kindredController.getHealth
 );
 
+//router.post('/:name/saveDate', kindredController.saveDate);
+
 //get health of kindred
 router.get(
   '/:name/getHealth',

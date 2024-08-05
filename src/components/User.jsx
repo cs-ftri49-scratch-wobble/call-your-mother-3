@@ -12,17 +12,21 @@ const [addEventV, setAddEventV]= useState(false)
 const [addFriendV, setAddFriendV]= useState(false)
 const [editFriendV, setEditFriendV]= useState(false)
 const [friendList, setFriendList] = useState([]);
-const [today, setToday] = useState('date');
-const [oldDate, setOldDate] = useState('oldDate');
+const [today, setToday] = useState(new Date());
+// const [oldDate, setOldDate] = useState('oldDate');
 
-useEffect(() => {
-const currDate = new Date();
-const lastDate = new Date("04/02/2024")
-setToday(currDate)
-setOldDate(lastDate)
-}, [])
 
-  URL = 'http://localhost:8080/kindred/all';
+//const daysDiff = (currDate - lastDate) / 86400000; 
+
+// useEffect(() => {
+// const currDate = new Date();
+// const lastDate = new Date("2024/08/01")
+
+// setToday(currDate)
+// setOldDate(lastDate)
+// }, [])
+
+  const URL = 'http://localhost:8080/kindred/all';
   useEffect(() => {
     fetch(URL)
       .then((response) => response.json())
@@ -38,7 +42,7 @@ setOldDate(lastDate)
 
   return (
     <div className="user">
-      <AddEvent addEventV={addEventV} setAddEventV={setAddEventV}/>
+      <AddEvent addEventV={addEventV} setAddEventV={setAddEventV} friendList={friendList}/>
       <AddFriend addFriendV = {addFriendV} setAddFriendV = {setAddFriendV} />
       <EditFriend editFriendV = {editFriendV} setEditFriendV = {setEditFriendV} friendList={friendList}/>
       
@@ -46,7 +50,7 @@ setOldDate(lastDate)
       <div className="windowsill">
         <Outside />
         <div className="friend-list">
-          {friendList.map((friend) => <Sunflower friend={friend.name} health="4" key={friend._id}/>)}
+          {friendList.map((friend) => <Sunflower friend={friend} key={friend._id} today={today}/>)}
         </div>
         <div className="friend-menu">
         <button className="btn-user" onClick={()=>setAddEventV(true)}>Add event</button>

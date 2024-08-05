@@ -1,20 +1,21 @@
 import { useState } from 'react';
 import '../css/userCards.css';
 
-function AddEvent({ addEventV, setAddEventV }) {
+function AddEvent({ addEventV, setAddEventV, friendList }) {
   const [friend, setFriend] = useState();
   const [date, setDate] = useState();
   function handleSubmit(e) {
     e.preventDefault();
     if (friend && date) {
-      console.log('success');
-      //make post request
 
-      document.getElementById('add-event-form').reset();
-      setAddEventV(false);
-      setDate();
-      setFriend();
-    }
+      //make post request
+    fetch(`http://localhost:8080/kindred/${friend}/addDate`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ date }),
+    })
+    handleClose();   
+  }
   }
   function handleClose() {
     document.getElementById('add-event-form').reset();
@@ -34,9 +35,7 @@ function AddEvent({ addEventV, setAddEventV }) {
       <form id="add-event-form">
         <select name="friend" onChange={(e) => setFriend(e.target.value)}>
           <option value="invalid">choose</option>
-          <option value="david">david</option>
-          <option value="alex">alex</option>
-          <option value="erin">erin</option>
+          {friendList.map(friend => <option value={friend.name} key={friend.name}>{friend.name}</option>)}
         </select>
         <input
           type="date"

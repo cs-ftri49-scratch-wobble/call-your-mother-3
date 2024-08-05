@@ -2,8 +2,10 @@
     height: 8%;
     width: 100%;
     background: var(--white);
-    display: grid;
-    place-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 5px;
 }
 
