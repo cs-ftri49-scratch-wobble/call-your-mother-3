@@ -13,18 +13,6 @@ const [addFriendV, setAddFriendV]= useState(false)
 const [editFriendV, setEditFriendV]= useState(false)
 const [friendList, setFriendList] = useState([]);
 const [today, setToday] = useState(new Date());
-// const [oldDate, setOldDate] = useState('oldDate');
-
-
-//const daysDiff = (currDate - lastDate) / 86400000; 
-
-// useEffect(() => {
-// const currDate = new Date();
-// const lastDate = new Date("2024/08/01")
-
-// setToday(currDate)
-// setOldDate(lastDate)
-// }, [])
 
   const URL = 'http://localhost:8080/kindred/all';
   useEffect(() => {
@@ -33,11 +21,9 @@ const [today, setToday] = useState(new Date());
       .then((data) => {
         console.log(data);
         setFriendList(data)
-        //Acquire date of last engagement from database
-
 
       });
-  }, [addFriendV, editFriendV]);
+  }, [friendList]);
 
 
   return (

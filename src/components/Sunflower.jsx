@@ -4,8 +4,7 @@ import {useEffect, useState} from 'react';
 function Sunflower({friend, today}){
     const [daysPassed, setDaysPassed] = useState('NA');
 useEffect(() => {
-    const lastDate= new Date(friend.date);
-
+    let lastDate= new Date(friend.date);
     const diff_in_time = lastDate.getTime() - today.getTime();
 
     setDaysPassed( Math.abs(Math.round(diff_in_time / (1000 * 3600 * 24))));

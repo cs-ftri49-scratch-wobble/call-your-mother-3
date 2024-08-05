@@ -4,6 +4,8 @@ import '../css/userCards.css';
 function AddEvent({ addEventV, setAddEventV, friendList }) {
   const [friend, setFriend] = useState();
   const [date, setDate] = useState();
+
+  
   function handleSubmit(e) {
     e.preventDefault();
     if (friend && date) {
@@ -13,8 +15,8 @@ function AddEvent({ addEventV, setAddEventV, friendList }) {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ date }),
-    })
-    handleClose();   
+    }).then(handleClose())
+     
   }
   }
   function handleClose() {
