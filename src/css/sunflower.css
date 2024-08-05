@@ -1,0 +1,138 @@
+
+.frame {
+    height: 300px;
+    width: 300px;
+  /*   aspect-ratio: 1/1; */
+    /* background: #fdefc7;
+    background: #fff; */
+    background: none;
+    border-radius: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: end;
+    align-items: center;
+    
+    overflow: hidden;
+    /* position: absolute;
+    bottom: 22%; */
+  }
+  
+  .pot-body {
+    background: #c58c3b;
+    height: 20%;
+    width: 36%;
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+    border-top: 10px solid #bd8231;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .pot-body span {
+    color: white;
+    text-transform: lowercase;
+    font-family: 'Courier Prime';
+    font-weight: 400;
+    font-size: 1.1rem;
+  }
+
+  .pot-lip {
+    background: #d69d4b;
+    height: 4%;
+    width: 40%;
+    border-radius: 2px;
+  }
+  .sunflower-stem {
+    height: 18%;
+    background: none;
+    width: 18%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: end;
+    position: relative;
+  }
+  
+  .stem-1 {
+    height:20%;
+    width: 5%;
+    background: #c0ca3d;
+  }
+  .stem-2 {
+    height:20%;
+    width: 5%;
+    background: #c0ca3d;
+  }
+  .stem-3 {
+    height:60%;
+    width: 5%;
+    background: #c0ca3d;
+  }
+  
+  .left-leaf {
+    height: 30%;
+    width: 35%;
+      border-top-right-radius: 65%;
+    border-bottom-left-radius: 65%;
+    background: #c0ca3d;
+    position: absolute;
+    bottom: 40%;
+    left: 12%;
+  }
+  
+  .right-leaf {
+    height: 30%;
+    width: 35%;
+      border-bottom-right-radius: 65%;
+    border-top-left-radius: 65%;
+    background: #c0ca3d;
+    position: absolute;
+    bottom: 20%;
+    right: 12%;
+  }
+  
+  .sunflower-outer {
+    height: 100px;
+    aspect-ratio: 1/1;
+    background: #f8c647;
+    position: relative;
+    display: grid;
+    place-items: center;
+  }
+  .sunflower-outer::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: inherit;
+    transform: rotate(45deg);
+  }
+  
+  .sunflower-inner {
+    height: 80%;
+    aspect-ratio: 1/1;
+    background: #f5a942;
+    z-index: 2;
+    border-radius: 100%;
+    display: grid;
+    place-items: center;
+  }
+  
+  .sunflower-smile {
+      height: 70%;
+    aspect-ratio: 1/1;
+    background: #fbd24c;
+  /*   z-index: 2; */
+    border-radius: 100%;
+  /*   clip-path: polygon(0 50%, 100% 50%, 50% 100%) */
+    position: relative;
+  }
+  
+  .sunflower-smile::after {
+    content: '';
+    position: absolute;
+    background: #f5a942;
+    height: 50%;
+    width:100%;
+    
+  }

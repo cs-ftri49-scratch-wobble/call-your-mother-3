@@ -1,12 +1,14 @@
 
 
-.hero {
+
+.user {
     display: flex;
     height: 80%;
     width: 100%;
     background: var(--beige);
     justify-content: center;
     gap: 4rem;
+    position: relative;
 }
 
 .hero-flowers {
@@ -22,6 +24,31 @@ height: 100%;
     justify-content: center;
 }
 
-.frame-container {
-    margin-top: 20vh;
+.windowsill {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 1.5rem;
+}
+.friend-list {
+    display: flex;
+    width: 100%;
+position: absolute;
+bottom: 15%;
+}
+
+.friend-menu {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-user {
+    background: #c58c3b;
+    color: white;
+    box-shadow: 0 1px 6px rgba(45, 32, 32, 0.9);
+    text-transform: lowercase;
+    font-family: 'Courier Prime';
+    font-weight: 400;
+    font-size: 1.5rem;
+    
 }

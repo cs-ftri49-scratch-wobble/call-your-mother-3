@@ -9,10 +9,10 @@
     display: grid;
     place-items: center;
     border-radius: 2px;
-    /* position: absolute;
-    left: 1rem;
-    top: 10rem; */
-    margin-top: 15vh;
+
+    position: absolute;
+    right: 3rem;
+    top: 20%;
   }
   
   .frame-body {

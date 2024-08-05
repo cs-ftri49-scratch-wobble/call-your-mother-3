@@ -1,5 +1,6 @@
 import '../css/outside.css'
 import Sky from './Sky'
+import Sunflower from './Sunflower'
 
 function Outside(){
     return (

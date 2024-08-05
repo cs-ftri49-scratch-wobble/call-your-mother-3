@@ -2,7 +2,7 @@
 
 .outside {
     margin-top: 4rem;
-    height: 65%;
+    height: 600px;
     aspect-ratio: 8/6;
     border: 2px solid gray;
     display: flex;
@@ -12,7 +12,7 @@
     border-bottom: 50px solid #ffffff;
     border-right: 50px solid #eedac6;;
     border-left: 50px solid #eedac6;;
-    
+    position: relative;
 }
 
 .sky {
