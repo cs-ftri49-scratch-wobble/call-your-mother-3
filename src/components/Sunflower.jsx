@@ -9,13 +9,28 @@ useEffect(() => {
 
     setDaysPassed( Math.abs(Math.round(diff_in_time / (1000 * 3600 * 24))));
 }, [friend, today])  
+let styles = {}
+if (daysPassed < 10)
+    styles = {
+        color: "rgb(120, 242, 120)"
+    }
+ if (daysPassed > 10)
+    styles = {
+        color: "#ffde59"
+    }   
+if (daysPassed > 20)
+styles = {
+    color: "#bd1b2e"
+}
+
+
 
 
     return (
         <div className='frame'>
             <div className="pot-body">
                 <span>{friend.name}</span>
-                <span>{daysPassed + " days"}</span>
+                <span style={styles}>{daysPassed}</span>
             </div>
             <div className="pot-lip"></div>
             <div className="sunflower-stem">
