@@ -1,0 +1,57 @@
+
+
+.hero {
+    display: flex;
+    height: 80%;
+    width: 100%;
+    background: var(--beige);
+    justify-content: center;
+}
+
+.hero-flowers {
+height: 100%;
+}
+.taglines {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-buttons {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    gap: .7rem;
+}
+.hero button {
+    width: 23rem;
+}
+
+#daughter {
+    color: var(--daughter-pink);
+    font-family: 'Poppins', 'Arial', 'sans-serif';
+    font-weight: 100;
+    line-height: 1.3;
+}
+
+#boss {
+    font-family: 'Merriweather';
+    color: var(--boss-red);
+    line-height: 1.3;
+}
+#partner {  
+    font-family: 'Calistoga';
+    letter-spacing: 2px;
+    color: var(--partner-yellow);
+    line-height: 1.3;
+}
+#friend {
+    font-family: 'Courier Prime';
+    letter-spacing: -7px;
+    font-weight: 300;
+    color: var(--friend-green);
+    line-height: 1.3;
+    margin-bottom: -1.4rem;
+}

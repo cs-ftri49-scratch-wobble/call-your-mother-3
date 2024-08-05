@@ -1,0 +1,128 @@
+
+.sky {
+    height: 600px;
+    width: 800px;
+    background: skyblue;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cloud {  
+    background: white;
+    position: absolute;
+    border-radius: 20em;
+    animation-name: cloud-move;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  
+  .cloud::before {
+    content: '';
+    height: 130%;
+    aspect-ratio: 1/1;
+    background: inherit;
+    position: absolute;
+    bottom: 45%;
+    left: 15%;
+    border-radius: 100%;
+  }
+  
+  .cloud::after {
+    content: '';
+    height: 180%;
+    aspect-ratio: 1/1;
+    background: inherit;
+    position: absolute;
+    bottom: 20%;
+    right: 15%;
+    border-radius: 100%;
+  
+  }
+  
+  #cl1 {
+    height: 8%;
+    width: 17%;
+    left: -30%;
+    top: 10%;
+    animation-duration: 30s;
+  }
+  
+  
+  
+  #cl3 {
+    height: 5%;
+    width: 11%;
+    left: -18%;
+    top: 40%;
+    animation-duration: 30s;
+    animation-delay: 4s;
+  }
+  
+  #cl4 {
+    height: 4%;
+    width: 9%;
+    left: -18%;
+    top: 60%;
+    animation-duration: 30s;
+    animation-delay: 15s;
+  }
+  
+  #cl5 {
+    height: 5%;
+    width: 11%;
+    left: -18%;
+    top: 20%;
+    animation-duration: 30s;
+    animation-delay: 19s;
+  }
+  
+  #cl6 {
+    height: 7%;
+    width: 16%;
+    left: -24%;
+    top: 49%;
+    animation-duration: 30s;
+    animation-delay: 22s;
+  }
+  
+  #cl7 {
+    height: 4%;
+    width: 9%;
+    left: -24%;
+    top: 78%;
+    animation-duration: 30s;
+    animation-delay: .4s;
+  }
+  
+  #cl8 {
+    height: 6%;
+    width: 13%;
+    left: -28%;
+    top: 65%;
+    animation-duration: 30s;
+    animation-delay: 7s;
+  }
+  
+  #cl9 {
+    height: 7%;
+    width: 15%;
+    left: -24%;
+    top: 92%;
+    animation-duration: 30s;
+    animation-delay: 18s;
+  }
+  
+  /* @keyframes cloud-move {
+    0% {
+      transform: translateX(0)
+    }
+    100% { transform: translateX(570%)}
+  } */
+  
+  @keyframes cloud-move {
+    0% {
+     
+    }
+    100% { left: 101%
+    }
+  }

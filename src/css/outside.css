@@ -1,0 +1,44 @@
+
+
+.outside {
+    margin-top: 4rem;
+    height: 65%;
+    aspect-ratio: 8/6;
+    border: 2px solid gray;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-top: 30px solid var(--white);
+    border-bottom: 50px solid #ffffff;
+    border-right: 50px solid #eedac6;;
+    border-left: 50px solid #eedac6;;
+    
+}
+
+.sky {
+    height: 75%;
+    background: rgb(144, 214, 242);
+    width: 100%;
+}
+
+.grass {
+    height: 25%;
+    width: 100%;
+    background: rgb(120, 242, 120);
+    position: relative;
+
+}
+
+.grass:after {
+    content: '';
+    width: 120%;
+    height: 100%;
+    /* border: 1px solid red; */
+    background: inherit;
+    position: absolute;
+    border-top-left-radius: 40%;
+    border-top-right-radius: 40%;
+    top: -20%;
+    transform: translateX(-10%)
+    
+}

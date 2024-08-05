@@ -1,0 +1,7 @@
+.footer {
+    height: 8%;
+    width: 100%;
+    background: var(--white);
+    display: grid;
+    place-content: center;
+}

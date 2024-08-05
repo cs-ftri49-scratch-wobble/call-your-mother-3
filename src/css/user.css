@@ -1,0 +1,27 @@
+
+
+.hero {
+    display: flex;
+    height: 80%;
+    width: 100%;
+    background: var(--beige);
+    justify-content: center;
+    gap: 4rem;
+}
+
+.hero-flowers {
+height: 100%;
+
+}
+.window {
+    width:60%;
+    aspect-ratio: 7/5;
+    background: skyblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.frame-container {
+    margin-top: 20vh;
+}
