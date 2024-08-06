@@ -7,10 +7,10 @@ useEffect(() => {
     let lastDate= new Date(friend.date);
     const diff_in_time = lastDate.getTime() - today.getTime();
 
-    setDaysPassed( Math.abs(Math.round(diff_in_time / (1000 * 3600 * 24))));
+    setDaysPassed( Math.abs(Math.round(diff_in_time / (1000 * 3600 * 24)))-1);
 }, [friend, today])  
 let styles = {}
-if (daysPassed < 10)
+if (daysPassed <= 10)
     styles = {
         color: "rgb(120, 242, 120)"
     }
